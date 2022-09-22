@@ -11,14 +11,30 @@ class UserStorage {
 
   static getUsers(...fields) {
     const users = this.#users
-    const newUsers = fields.reduce((newUsers,field) => {
-      if(users.hasOwnProperty(field)) {
+    const newUsers = fields.reduce((newUsers, field) => {
+      if (users.hasOwnProperty(field)) {
         newUsers[field] = users[field]
       }
       return newUsers;
     }, {})
     return newUsers;
   }
+
+  static getUserInfo(id) {
+    const users = this.#users;
+    console.log("users",typeof users, users);
+    const idx = users.id.indexOf(id)
+    console.log("idx",idx);
+
+    // 복습하기!! reduce and Object and Array
+    const userInfo = Object.keys(users).reduce((newUser, info) => {
+      newUser[info] = users[info][idx];
+      console.log("newUser, info",newUser, info);
+      return newUser
+    }, {})
+    return userInfo
+  }
+
 }
 
 module.exports = UserStorage;
