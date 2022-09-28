@@ -1,8 +1,8 @@
 "use strict";
 
-const id = document.querySelector("#id"),
-  password = document.querySelector("#password"),
-  loginBtn = document.querySelector("button");
+const id = document.querySelector("#id");
+const password = document.querySelector("#password");
+const loginBtn = document.querySelector("button");
 
 const login = () => {
   const req = {
